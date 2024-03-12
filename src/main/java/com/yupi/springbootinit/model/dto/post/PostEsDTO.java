@@ -8,21 +8,22 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * 帖子 ES 包装类
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+
  **/
 // todo 取消注释开启 ES（须先配置 ES）
-//@Document(indexName = "post")
+@Document(indexName = "post")
 @Data
 public class PostEsDTO implements Serializable {
 
@@ -40,6 +41,14 @@ public class PostEsDTO implements Serializable {
     private String title;
 
     /**
+     * @description: 提示建议
+     * @author 彭
+     * @date 2024/1/24 15:47
+     * @version 1.0
+     */
+    private List<String> suggestions;
+
+    /**
      * 内容
      */
     private String content;
@@ -49,15 +58,6 @@ public class PostEsDTO implements Serializable {
      */
     private List<String> tags;
 
-    /**
-     * 点赞数
-     */
-    private Integer thumbNum;
-
-    /**
-     * 收藏数
-     */
-    private Integer favourNum;
 
     /**
      * 创建用户 id
@@ -96,9 +96,13 @@ public class PostEsDTO implements Serializable {
         PostEsDTO postEsDTO = new PostEsDTO();
         BeanUtils.copyProperties(post, postEsDTO);
         String tagsStr = post.getTags();
+        String title = post.getTitle();
+        List<String> suggestions = new ArrayList<String>(){{add(title);}};
+        postEsDTO.setSuggestions(suggestions);
         if (StringUtils.isNotBlank(tagsStr)) {
             postEsDTO.setTags(JSONUtil.toList(tagsStr, String.class));
         }
+
         return postEsDTO;
     }
 

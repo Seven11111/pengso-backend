@@ -2,6 +2,8 @@ package com.yupi.springbootinit.datasource;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import java.util.List;
+
 public interface DataSource<T> {
     
     /**
@@ -11,4 +13,6 @@ public interface DataSource<T> {
      * @version 1.0
      */
     Page<T> doSearch(String searchText, long pageNum, long pageSize);
+
+    List<String> doPrompt(String searchText);
 }

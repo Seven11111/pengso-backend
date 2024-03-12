@@ -1,13 +1,12 @@
 package com.yupi.springbootinit.esdao;
 
+import cn.hutool.json.JSONUtil;
 import com.yupi.springbootinit.model.dto.post.PostEsDTO;
 import com.yupi.springbootinit.model.dto.post.PostQueryRequest;
 import com.yupi.springbootinit.model.entity.Post;
 import com.yupi.springbootinit.service.PostService;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
+
+import java.util.*;
 import javax.annotation.Resource;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,8 +17,7 @@ import org.springframework.data.domain.Sort;
 /**
  * 帖子 ES 操作测试
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+
  */
 @SpringBootTest
 public class PostEsDaoTest {
@@ -50,12 +48,12 @@ public class PostEsDaoTest {
     @Test
     void testAdd() {
         PostEsDTO postEsDTO = new PostEsDTO();
-        postEsDTO.setId(1L);
-        postEsDTO.setTitle("test");
-        postEsDTO.setContent("test");
+//        postEsDTO.setId(1L);
+        postEsDTO.setTitle("我是天才2222");
+        postEsDTO.setContent("天才是孤独的");
         postEsDTO.setTags(Arrays.asList("java", "python"));
-        postEsDTO.setThumbNum(1);
-        postEsDTO.setFavourNum(1);
+//        postEsDTO.setThumbNum(1);
+//        postEsDTO.setFavourNum(1);
         postEsDTO.setUserId(1L);
         postEsDTO.setCreateTime(new Date());
         postEsDTO.setUpdateTime(new Date());
@@ -69,6 +67,12 @@ public class PostEsDaoTest {
         Optional<PostEsDTO> postEsDTO = postEsDao.findById(1L);
         System.out.println(postEsDTO);
     }
+    @Test
+    void testDeleteById() {
+//        Optional<PostEsDTO> postEsDTO = postEsDao.deleteById("N6zxMI0BZgqKmLkkYb-m");
+//        System.out.println(postEsDTO);
+    }
+
 
     @Test
     void testCount() {
@@ -80,4 +84,12 @@ public class PostEsDaoTest {
         List<PostEsDTO> postEsDaoTestList = postEsDao.findByUserId(1L);
         System.out.println(postEsDaoTestList);
     }
+    @Test
+    void testFindByTitle() {
+
+
+        List<PostEsDTO> postEsDaoTestList = postEsDao.findByTitle("我天才");
+        System.out.println(postEsDaoTestList);
+    }
+
 }

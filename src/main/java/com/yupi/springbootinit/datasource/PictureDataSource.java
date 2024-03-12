@@ -55,4 +55,9 @@ public class PictureDataSource implements DataSource<Picture> {
         picturePage.setRecords(pictureList);
         return picturePage;
     }
+
+    @Override
+    public List<String> doPrompt(String searchText) {
+        return null;
+    }
 }

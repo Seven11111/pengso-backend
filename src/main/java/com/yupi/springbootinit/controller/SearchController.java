@@ -35,8 +35,7 @@ import java.util.concurrent.CompletableFuture;
 /**
  * 查询接口
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+
  */
 @RestController
 @RequestMapping("/search")
@@ -49,5 +48,10 @@ public class SearchController {
     @PostMapping("/search/all")
     public BaseResponse<SearchVO> searchAll(@RequestBody SearchRequest searchRequest, HttpServletRequest request) {
         return ResultUtils.success(searchFacade.searchAll(searchRequest, request));
+    }
+
+    @PostMapping("/search/prompt")
+    public BaseResponse<List<String>> searchPrompt(@RequestBody SearchRequest searchRequest) {
+        return ResultUtils.success(searchFacade.searchPrompt(searchRequest));
     }
 }
