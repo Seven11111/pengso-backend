@@ -34,11 +34,11 @@ P 搜索 -- 搜用户
 **后端**
 
 - ​Spring Boot 2.7 框架
-​- MySQL 数据库
-​- Elastic Stack ​Elasticsearch 搜索引擎
-​- Logstash 数据管道
-​- Kibana 数据可视化
-​- 数据抓取​离线和实时抓取​Jsoup 和 HttpClient 库​
+- MySQL 数据库
+- Elastic Stack ​Elasticsearch 搜索引擎
+- Logstash 数据管道
+- Kibana 数据可视化
+- 数据抓取​离线和实时抓取​Jsoup 和 HttpClient 库​
 
 **设计模式** ​
 - 门面模式​
