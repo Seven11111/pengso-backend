@@ -1,4 +1,4 @@
-![image](https://github.com/Seven11111/pengso-backend/assets/101923429/aeeb43ed-8ef7-4dab-b7cd-0c1390b47584)# P 搜索 -- 一款聚合搜索平台
+# P 搜索 -- 一款聚合搜索平台
 基于 Spring Boot + Elastic Stack（+ Vue 3）的一站式信息聚合搜索平台。用户可在同一页面集中搜索出不同来源、不同类型的内容（建议具体列举具体的数据类别，比如文章、图片、用户、专栏、视频等），提升搜索体验。
 
 ## 项目介绍
@@ -24,6 +24,7 @@ P 搜索 -- 搜用户
 后端：https://github.com/Seven11111/pengso-backend
 
 ## 技术选型
+
 **前端**
 - ​Vue 3​
 - Ant Design Vue 组件库
@@ -36,10 +37,12 @@ P 搜索 -- 搜用户
 ​- Logstash 数据管道
 ​- Kibana 数据可视化
 ​- 数据抓取​离线和实时抓取​Jsoup 和 HttpClient 库​
+
 **设计模式** ​
 - 门面模式​
 - 适配器模式​
 - 注册器模式
+
 ​**数据同步（4 种方式）** 
 ​- 定时​双写
 ​- Logstash​
