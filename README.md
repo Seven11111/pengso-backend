@@ -26,11 +26,13 @@ P 搜索 -- 搜用户
 ## 技术选型
 
 **前端**
+
 - ​Vue 3​
 - Ant Design Vue 组件库
 ​- 页面状态同步机制​​
 
 **后端**
+
 - ​Spring Boot 2.7 框架
 ​- MySQL 数据库
 ​- Elastic Stack ​Elasticsearch 搜索引擎
